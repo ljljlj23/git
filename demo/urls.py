@@ -27,4 +27,13 @@ urlpatterns = [
     re_path(r'urltest/(\d)', views.urltest),
     # re_path(r'urltestnew/(\d{4})/(\w+)', views.urltestnew),
     re_path(r'urltestnew/(?P<year>\d{4})/(?P<city>\w+)', views.urltestnew),
+    path('gethtml/',views.gethtml),
+
+    path('indextmp/',views.indextmp),
+    path('abc/',views.abc),
+    path('hello/',views.hello),
+    path('tpltest/',views.tpltest),
+    re_path('tpltest/(\d+)',views.tpltest),
+    path('statictest/',views.statictest),
+    path('staticdemo/',views.staticdemo),
 ]

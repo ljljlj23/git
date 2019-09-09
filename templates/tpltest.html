@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>tpltest</title>
+</head>
+<body>
+<h1>这是一个模板测试页面</h1>
+姓名：{{ name | capfirst | upper | lower }}
+<br>
+年龄：{{ age | add:10 }}
+<br>
+爱好：{{ hobby }}
+<br>
+第一个爱好：{{ hobby.0 }}
+<br>
+第二个爱好：{{ hobby.1 }}
+<br>
+成绩：{{ score }}
+<br>
+数学成绩：{{ score.math }}
+<br>
+英语成绩：{{ score.English }}
+<br>
+{{ say.say }}
+
+{{ myjs | safe }}
+
+{#if判断#}
+{% if age > 18 and age < 40 %}
+  <p>青壮年</p>
+{% elif age >= 40 %}
+  <p>壮年</p>
+{% else %}
+  <p>少年</p>
+{% endif %}
+
+{#遍历列表#}
+<ol>
+{% for one in hobby %}    <!-- 加reversed倒序 -->
+  <li>{{ one }}</li>
+{% endfor %}
+</ol>
+
+{#遍历字典#}
+{% for key,value in score.items %}
+  <p>{{ key }}:{{ value }}</p>
+{% endfor %}
+
+{#forloop#}
+{% for one in hobby reversed %}
+  {% if forloop.first %}
+    <p style="color:pink">{{ forloop.counter }}.{{ one }}</p>
+  {% elif forloop.last %}
+    <p style="color:yellowgreen">{{ forloop.counter }}.{{ one }}</p>
+  {% else %}
+    <p>{{ forloop.counter }}.{{ one }}</p>
+  {% endif %}
+{% endfor %}
+
+</body>
+</html>
