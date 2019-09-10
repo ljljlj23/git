@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +13,8 @@
     <li>
       <h2>{{ one.name }}</h2>
       <a href="{{ one.url }}">
-        <img src="/static/images/{{ one.img }}" alt="">
+{#        <img src="/static/images/{{ one.img }}" alt="">#}
+        <img src={% static 'images/' %}{{ one.img }} alt="">
       </a>
     </li>
   {% endfor %}
