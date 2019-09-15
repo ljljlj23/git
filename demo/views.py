@@ -18,7 +18,7 @@ def urltest(request,num):
 
 # def urltestnew(request,year,city):
 #     return HttpResponse('%s年在%s'%(year,city))
-def urltestnew(request,year,city):
+def urltestnew(request,city,year):
     return HttpResponse('%s年在%s'%(year,city))
 
 def gethtml(request):
@@ -73,7 +73,7 @@ def abc(request):
 from django.template.loader import get_template
 
 def hello(request):
-    template=get_template('hello.html')
+    get_template('hello.html')
     name = 'hello html'
     return render_to_response('hello.html', {'name': name})
 
